@@ -1,8 +1,7 @@
-import 'dart:async';
-
 import 'package:carousel_pro/carousel_pro.dart';
 import 'package:flutter/material.dart';
 import 'package:object_detection_app/ui_designs/about_us.dart';
+import 'package:object_detection_app/ui_designs/help.dart';
 
 class MyHomePage extends StatelessWidget {
   MyHomePage({super.key});
@@ -59,7 +58,10 @@ class MyHomePage extends StatelessWidget {
               leading: const Icon(Icons.help_center_rounded),
               title: const Text('Help?'),
               onTap: () {
-                Navigator.pop(context);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const Help()),
+                );
               },
             ),
           ],

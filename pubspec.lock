@@ -15,6 +15,8 @@ packages:
       name: boolean_selector
       sha256: "6cfb5af12253eaf2b368f07bacc5a80d1301a071c73360d746b7f2e32d762c66"
       url: "https://pub.dev"
+    source: hosted
+    version: "2.1.1"
   carousel_pro:
     dependency: "direct main"
     description:
@@ -191,3 +193,5 @@ packages:
     source: hosted
     version: "2.1.4"
 sdks:
+  dart: ">=2.19.5 <3.0.0"
+  flutter: ">=1.2.0"
