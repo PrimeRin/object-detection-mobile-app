@@ -19,11 +19,10 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-<<<<<<< HEAD
   sdk: '>=2.19.6 <3.0.0'
-=======
   sdk: '>=2.19.5 <3.0.0'
->>>>>>> b859a72 (changes made)
+  sdk: '>=2.19.6 <3.0.0'
+
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -39,10 +38,8 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
-<<<<<<< HEAD
-=======
   carousel_pro: ^1.0.0
->>>>>>> b859a72 (changes made)
+
 
 dev_dependencies:
   flutter_test:
@@ -67,15 +64,12 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-<<<<<<< HEAD
   # assets:
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
-=======
   assets:
     - assets/images/images.jpg
     - assets/images/download.jpg
->>>>>>> b859a72 (changes made)
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
