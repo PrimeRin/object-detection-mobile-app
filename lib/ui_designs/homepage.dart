@@ -1,12 +1,37 @@
 import 'package:carousel_pro/carousel_pro.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:object_detection_app/ui_designs/about_us.dart';
 import 'package:object_detection_app/ui_designs/help.dart';
+import 'package:object_detection_app/ui_designs/laod_page.dart';
+
+class HomePage extends StatelessWidget {
+  const HomePage({Key? key}) : super(key: key);
+
+  get background => null;
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'My App',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+        appBarTheme: const AppBarTheme(
+          iconTheme: IconThemeData(color: Colors.black),
+          color: Colors.white,
+          toolbarTextStyle: TextStyle(fontSize: 20),
+          titleTextStyle: TextStyle(color: Colors.black),
+        ),
+      ),
+    );
+  }
+}
 
 class MyHomePage extends StatelessWidget {
-  MyHomePage({super.key});
+  MyHomePage({Key? key}) : super(key: key);
 
   int _selectedIndex = 0;
+
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
@@ -30,7 +55,7 @@ class MyHomePage extends StatelessWidget {
                 color: Color.fromARGB(255, 182, 114, 80),
               ),
               child: Text(
-                'Navigation Drawer',
+                'Traditional Object Recognition',
                 style: TextStyle(
                   color: Colors.black,
                   fontSize: 24,
@@ -69,21 +94,19 @@ class MyHomePage extends StatelessWidget {
       ),
       body: Center(
         child: Column(children: [
-          Expanded(
-            child: SizedBox(
-              height: 200.0,
-              child: Carousel(
-                boxFit: BoxFit.fill,
-                autoplay: false,
-                dotColor: Colors.yellow,
-                dotPosition: DotPosition.bottomCenter,
-                dotSize: 5.0,
-                dotSpacing: 20.0,
-                images: const [
-                  AssetImage('assets/images/images.jpg'),
-                  AssetImage('assets/images/download.jpg'),
-                ],
-              ),
+          SizedBox(
+            height: 200.0,
+            child: Carousel(
+              boxFit: BoxFit.fill,
+              autoplay: false,
+              dotColor: Colors.yellow,
+              dotPosition: DotPosition.bottomCenter,
+              dotSize: 5.0,
+              dotSpacing: 20.0,
+              images: const [
+                AssetImage('assets/images/images.jpg'),
+                AssetImage('assets/images/download.jpg'),
+              ],
             ),
           ),
           Container(
@@ -126,10 +149,32 @@ class MyHomePage extends StatelessWidget {
         ],
         currentIndex: _selectedIndex,
         selectedItemColor: Colors.blue,
-        onTap: _onItemTapped,
+        //onTap: _onItemTapped,
+        onTap: (int index) {
+          if (index == 0) {
+            _onItemTapped(index);
+          } else if (index == 1) {
+            getFromGallery(context);
+          }
+        },
       ),
     );
   }
 
-  void setState(Null Function() param0) {}
+  Future getFromGallery(BuildContext context) async {
+    final XFile? pickedFile = await ImagePicker().pickImage(
+      source: ImageSource.gallery,
+    );
+    // ignore: use_build_context_synchronously
+    Navigator.of(context).pop();
+    if (pickedFile == null) {
+      return;
+    } else {
+      // ignore: use_build_context_synchronously
+      Navigator.of(context).push(
+          MaterialPageRoute(builder: (_) => LoadingPage(image: pickedFile)));
+    }
+  }
 }
+
+void setState(Null Function() param0) {}
