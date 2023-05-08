@@ -1,4 +1,4 @@
-import 'package:carousel_pro/carousel_pro.dart';
+// import 'package:carousel_pro/carousel_pro.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:object_detection_app/ui_designs/about_us.dart';
@@ -94,19 +94,21 @@ class MyHomePage extends StatelessWidget {
       ),
       body: Center(
         child: Column(children: [
-          SizedBox(
-            height: 200.0,
-            child: Carousel(
-              boxFit: BoxFit.fill,
-              autoplay: false,
-              dotColor: Colors.yellow,
-              dotPosition: DotPosition.bottomCenter,
-              dotSize: 5.0,
-              dotSpacing: 20.0,
-              images: const [
-                AssetImage('assets/images/images.jpg'),
-                AssetImage('assets/images/download.jpg'),
-              ],
+          Expanded(
+            child: SizedBox(
+              height: 200.0,
+              child: Carousel(
+                boxFit: BoxFit.fill,
+                autoplay: false,
+                dotColor: Colors.yellow,
+                dotPosition: DotPosition.bottomCenter,
+                dotSize: 5.0,
+                dotSpacing: 20.0,
+                images: const [
+                  AssetImage('assets/images/images.jpg'),
+                  AssetImage('assets/images/download.jpg'),
+                ],
+              ),
             ),
           ),
           Container(
