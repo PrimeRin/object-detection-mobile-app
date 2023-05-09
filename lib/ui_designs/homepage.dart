@@ -1,9 +1,15 @@
-// import 'package:carousel_pro/carousel_pro.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:object_detection_app/ui_designs/about_us.dart';
+import 'package:object_detection_app/ui_designs/categories.dart';
 import 'package:object_detection_app/ui_designs/help.dart';
 import 'package:object_detection_app/ui_designs/laod_page.dart';
+import 'package:object_detection_app/ui_designs/trending.dart';
+import 'package:object_detection_app/util/categories.dart';
+import 'package:object_detection_app/util/classes.dart';
+import 'package:object_detection_app/util/canes.dart';
+import 'package:object_detection_app/widgets/category_item.dart';
+import 'package:object_detection_app/widgets/slide_item.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -43,6 +49,7 @@ class MyHomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Visual Sense'),
+        elevation: 6.0,
       ),
       drawer: Drawer(
         child: ListView(
@@ -52,13 +59,13 @@ class MyHomePage extends StatelessWidget {
           children: <Widget>[
             const DrawerHeader(
               decoration: BoxDecoration(
-                color: Color.fromARGB(255, 182, 114, 80),
+                color: Color.fromARGB(255, 206, 168, 148),
               ),
               child: Text(
-                'Traditional Object Recognition',
+                'Object Recognition',
                 style: TextStyle(
                   color: Colors.black,
-                  fontSize: 24,
+                  fontSize: 20,
                 ),
               ),
             ),
@@ -93,47 +100,76 @@ class MyHomePage extends StatelessWidget {
         ),
       ),
       body: Center(
-        child: Column(children: [
-          Expanded(
-            child: SizedBox(
-              height: 200.0,
-              child: Carousel(
-                boxFit: BoxFit.fill,
-                autoplay: false,
-                dotColor: Colors.yellow,
-                dotPosition: DotPosition.bottomCenter,
-                dotSize: 5.0,
-                dotSpacing: 20.0,
-                images: const [
-                  AssetImage('assets/images/images.jpg'),
-                  AssetImage('assets/images/download.jpg'),
-                ],
-              ),
+        child: GestureDetector(
+          onTap: () {
+            FocusScopeNode currentFocus = FocusScope.of(context);
+            if (!currentFocus.hasPrimaryFocus) {
+              currentFocus.unfocus();
+            }
+          },
+          child: Container(
+            padding: const EdgeInsets.fromLTRB(10.0, 0, 10.0, 0),
+            child: ListView(
+              children: <Widget>[
+                buildPopularRow('Popular Items', context),
+                const SizedBox(height: 10.0),
+                buildPopularList(context),
+                const SizedBox(height: 10.0),
+                buildWoodRow('Wood Items', context),
+                const SizedBox(height: 10.0),
+                buildWoodList(context),
+                const SizedBox(height: 20.0),
+                buildWoodRow('Cane Items', context),
+                const SizedBox(height: 10.0),
+                buildCanesList(context),
+                const SizedBox(height: 10.0),
+              ],
             ),
           ),
-          Container(
-            margin: const EdgeInsets.only(top: 60, right: 20, left: 20),
-            child: const Text("Welcome",
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold)),
-          ),
-          Container(
-            margin: const EdgeInsets.only(top: 45, right: 30, left: 30),
-            child: const Text(
-                "To a system for easy recognition of Bhutanese traditional items made from Wood and Cane",
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 15)),
-          ),
-          Container(
-            margin: const EdgeInsets.only(
-                top: 35, right: 30, left: 30, bottom: 200),
-            child: const Text(
-                "Providing platform for gaining adequate knowledge on Bhutanese traditional items.",
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 15)),
-          ),
-        ]),
+        ),
       ),
+      // body: Center(
+      //   child: Column(children: [
+      //     Expanded(
+      //       child: SizedBox(
+      //         height: 200.0,
+      //         child: Carousel(
+      //           boxFit: BoxFit.fill,
+      //           autoplay: false,
+      //           dotColor: Colors.yellow,
+      //           dotPosition: DotPosition.bottomCenter,
+      //           dotSize: 5.0,
+      //           dotSpacing: 20.0,
+      //           images: const [
+      //             AssetImage('assets/images/images.jpg'),
+      //             AssetImage('assets/images/download.jpg'),
+      //           ],
+      //         ),
+      //       ),
+      //     ),
+      //     Container(
+      //       margin: const EdgeInsets.only(top: 60, right: 20, left: 20),
+      //       child: const Text("Welcome",
+      //           textAlign: TextAlign.center,
+      //           style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold)),
+      //     ),
+      //     Container(
+      //       margin: const EdgeInsets.only(top: 45, right: 30, left: 30),
+      //       child: const Text(
+      //           "To a system for easy recognition of Bhutanese traditional items made from Wood and Cane",
+      //           textAlign: TextAlign.center,
+      //           style: TextStyle(fontSize: 15)),
+      //     ),
+      //     Container(
+      //       margin: const EdgeInsets.only(
+      //           top: 35, right: 30, left: 30, bottom: 200),
+      //       child: const Text(
+      //           "Providing platform for gaining adequate knowledge on Bhutanese traditional items.",
+      //           textAlign: TextAlign.center,
+      //           style: TextStyle(fontSize: 15)),
+      //     ),
+      //   ]),
+      // ),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
@@ -176,6 +212,135 @@ class MyHomePage extends StatelessWidget {
       Navigator.of(context).push(
           MaterialPageRoute(builder: (_) => LoadingPage(image: pickedFile)));
     }
+  }
+
+  buildPopularRow(String restaurant, BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: <Widget>[
+        Text(
+          "$restaurant",
+          style: const TextStyle(
+            fontSize: 20.0,
+            fontWeight: FontWeight.w800,
+          ),
+        ),
+        TextButton(
+          child: Text(
+            "See all (9)",
+            style: TextStyle(
+              color: Theme.of(context).accentColor,
+            ),
+          ),
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (BuildContext context) {
+                  return Trending();
+                },
+              ),
+            );
+          },
+        ),
+      ],
+    );
+  }
+
+  buildWoodRow(String category, BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: <Widget>[
+        Text(
+          "$category",
+          style: const TextStyle(
+            fontSize: 20.0,
+            fontWeight: FontWeight.w800,
+          ),
+        ),
+        TextButton(
+          child: Text(
+            "See all (9)",
+            style: TextStyle(
+              color: Theme.of(context).accentColor,
+            ),
+          ),
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (BuildContext context) {
+                  return Categories();
+                },
+              ),
+            );
+          },
+        ),
+      ],
+    );
+  }
+
+  buildWoodList(BuildContext context) {
+    return Container(
+      height: MediaQuery.of(context).size.height / 6,
+      child: ListView.builder(
+        primary: false,
+        scrollDirection: Axis.horizontal,
+        shrinkWrap: true,
+        itemCount: categories == null ? 0 : categories.length,
+        itemBuilder: (BuildContext context, int index) {
+          Map cat = categories[index];
+
+          return CategoryItem(
+            cat: cat,
+          );
+        },
+      ),
+    );
+  }
+
+  buildPopularList(BuildContext context) {
+    return Container(
+      height: MediaQuery.of(context).size.height / 2.4,
+      width: MediaQuery.of(context).size.width,
+      child: ListView.builder(
+        primary: false,
+        shrinkWrap: true,
+        scrollDirection: Axis.horizontal,
+        itemCount: classes == null ? 0 : classes.length,
+        itemBuilder: (BuildContext context, int index) {
+          Map cla = classes[index];
+
+          return Container(
+            padding: const EdgeInsets.only(right: 10.0),
+            child: SlideItem(
+              img: cla["img"],
+              title: cla["title"],
+              address: cla["address"],
+            ),
+          );
+        },
+      ),
+    );
+  }
+
+  buildCanesList(BuildContext context) {
+    return Container(
+      height: MediaQuery.of(context).size.height / 6,
+      child: ListView.builder(
+        primary: false,
+        scrollDirection: Axis.horizontal,
+        shrinkWrap: true,
+        itemCount: canes == null ? 0 : canes.length,
+        itemBuilder: (BuildContext context, int index) {
+          Map cat = canes[index];
+
+          return CategoryItem(
+            cat: cat,
+          );
+        },
+      ),
+    );
   }
 }
 
