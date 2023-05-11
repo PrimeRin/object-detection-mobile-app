@@ -12,38 +12,38 @@ class Constants {
   static Color darkBG = Colors.black;
   static Color? ratingBG = Colors.yellow[600];
 
-  static ThemeData lightTheme = ThemeData(
-    backgroundColor: lightBG,
-    primaryColor: lightPrimary,
-    accentColor: lightAccent,
-    cardColor: lightAccent,
-    scaffoldBackgroundColor: lightBG,
-    appBarTheme: AppBarTheme(
-      textTheme: TextTheme(
-        headline6: TextStyle(
-          color: darkBG,
-          fontSize: 18.0,
-          fontWeight: FontWeight.w800,
-        ),
-      ),
-    ),
-  );
+  // static ThemeData lightTheme = ThemeData(
+  //   backgroundColor: lightBG,
+  //   primaryColor: lightPrimary,
+  //   accentColor: lightAccent,
+  //   cardColor: lightAccent,
+  //   scaffoldBackgroundColor: lightBG,
+  //   appBarTheme: AppBarTheme(
+  //     textTheme: TextTheme(
+  //       headline6: TextStyle(
+  //         color: darkBG,
+  //         fontSize: 18.0,
+  //         fontWeight: FontWeight.w800,
+  //       ),
+  //     ),
+  //   ),
+  // );
 
-  static ThemeData darkTheme = ThemeData(
-    brightness: Brightness.dark,
-    backgroundColor: darkBG,
-    primaryColor: darkPrimary,
-    accentColor: darkAccent,
-    scaffoldBackgroundColor: darkBG,
-    cardColor: darkAccent,
-    appBarTheme: AppBarTheme(
-      textTheme: TextTheme(
-        headline6: TextStyle(
-          color: lightBG,
-          fontSize: 18.0,
-          fontWeight: FontWeight.w800,
-        ),
-      ),
-    ),
-  );
+  // static ThemeData darkTheme = ThemeData(
+  //   brightness: Brightness.dark,
+  //   backgroundColor: darkBG,
+  //   primaryColor: darkPrimary,
+  //   accentColor: darkAccent,
+  //   scaffoldBackgroundColor: darkBG,
+  //   cardColor: darkAccent,
+  //   appBarTheme: AppBarTheme(
+  //     textTheme: TextTheme(
+  //       headline6: TextStyle(
+  //         color: lightBG,
+  //         fontSize: 18.0,
+  //         fontWeight: FontWeight.w800,
+  //       ),
+  //     ),
+  //   ),
+  // );
 }

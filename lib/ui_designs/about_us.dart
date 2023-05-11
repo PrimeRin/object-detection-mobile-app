@@ -7,7 +7,7 @@ void main() {
 }
 
 class AboutUsPage extends StatelessWidget {
-  const AboutUsPage({super.key});
+  const AboutUsPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -27,206 +27,141 @@ class AboutUsPage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: const [
-                CircleAvatar(
-                  radius: 12,
-                  backgroundColor: Colors.blue,
-                  child: Text(
-                    '1',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 12,
+            ExpansionTile(
+              initiallyExpanded: true,
+              title: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: const [
+                  CircleAvatar(
+                    radius: 12,
+                    backgroundColor: Colors.blue,
+                    child: Text(
+                      '1',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 12,
+                      ),
                     ),
                   ),
-                ),
-                SizedBox(width: 8.0),
-                Text(
-                  'Our Vision',
-                  style: TextStyle(
-                    fontSize: 15.0,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ],
-            ),
-            const SizedBox(height: 16.0),
-            const Text(
-              'We are a startup company based in the heart of the city. Our mission is to create innovative solutions that help people achieve their goals and improve their lives.',
-              style: TextStyle(fontSize: 12.0),
-            ),
-            const SizedBox(height: 16.0),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: const [
-                CircleAvatar(
-                  radius: 12,
-                  backgroundColor: Colors.blue,
-                  child: Text(
-                    '2',
+                  SizedBox(width: 8.0),
+                  Text(
+                    'App Overview',
                     style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 12,
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
-                ),
-                SizedBox(width: 8.0),
-                Text(
-                  'Mission',
-                  style: TextStyle(
-                    fontSize: 15.0,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ],
-            ),
-            const SizedBox(height: 16.0),
-            const Text(
-              'We are a startup company based in the heart of the city. Our mission is to create innovative solutions that help people achieve their goals and improve their lives.',
-              style: TextStyle(fontSize: 12.0),
-            ),
-            const SizedBox(height: 16.0),
-            const SizedBox(height: 16.0),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: const [
-                CircleAvatar(
-                  radius: 12,
-                  backgroundColor: Colors.blue,
-                  child: Text(
-                    '3',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 12,
-                    ),
-                  ),
-                ),
-                SizedBox(width: 8.0),
-                Text(
-                  'Our Team',
-                  style: TextStyle(
-                    fontSize: 15.0,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ],
-            ),
-            const SizedBox(height: 20.0),
-            ListView(
-              shrinkWrap: true,
+                ],
+              ),
               children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Expanded(
-                      child: Column(
-                        children: const [
-                          CircleAvatar(
-                            backgroundImage:
-                                AssetImage('assets/images/guide.jpg'),
-                            radius: 32.0,
-                          ),
-                          SizedBox(height: 8.0),
-                          Text(
-                            'Yeshi Jamtsho',
-                            style: TextStyle(
-                              fontSize: 15.0,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          SizedBox(height: 8.0),
-                          Text(
-                            'Guide',
-                            style: TextStyle(fontSize: 12.0),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
+                const SizedBox(height: 16.0),
+                const Text(
+                  "There are varieties of traditional Bhutanese objects used and produced in different parts of our country.Implementing deep learning to build a traditional object recognition system can assist both Bhutanese and foreigners to learn more about our unique cultures and traditions. Our model will be able to detect 10 wooden objects and 10 cane object which are Dapa, Dhaphob, Baap, Jandhom, Dophob, Thopkay, Zaru, Cheydrum, Dramyen , Nga , Bangchung, Beolo, LagchuDapa, Baykhu, Changsho, Zepchu, Bangkhab, Dungshub, Tseo and Dha. ",
+                  style: TextStyle(fontSize: 16),
                 ),
-                const SizedBox(height: 20.0),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Expanded(
-                      child: Column(
-                        children: const [
-                          CircleAvatar(
-                            backgroundImage:
-                                AssetImage('assets/images/person4.jpg'),
-                            radius: 32.0,
-                          ),
-                          SizedBox(height: 8.0),
-                          Text(
-                            'Pema Rinchen',
-                            style: TextStyle(
-                              fontSize: 15.0,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          SizedBox(height: 8.0),
-                          Text(
-                            'Developer',
-                            style: TextStyle(fontSize: 12.0),
-                          ),
-                        ],
+                const SizedBox(height: 16.0),
+              ],
+            ),
+            ExpansionTile(
+              title: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: const [
+                  CircleAvatar(
+                    radius: 12,
+                    backgroundColor: Colors.blue,
+                    child: Text(
+                      '2',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 12,
                       ),
                     ),
-                    const SizedBox(width: 16.0),
-                    Expanded(
-                      child: Column(
-                        children: const [
-                          CircleAvatar(
-                            backgroundImage:
-                                AssetImage('assets/images/person4.jpg'),
-                            radius: 32.0,
-                          ),
-                          SizedBox(height: 8.0),
-                          Text(
-                            'Nike Sharma',
-                            style: TextStyle(
-                              fontSize: 15.0,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          SizedBox(height: 8.0),
-                          Text(
-                            'UX Designer',
-                            style: TextStyle(fontSize: 12.0),
-                          ),
-                        ],
-                      ),
+                  ),
+                  SizedBox(width: 8.0),
+                  Text(
+                    'Gallery Upload',
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
                     ),
-                    const SizedBox(width: 16.0),
-                    Expanded(
-                      child: Column(
-                        children: const [
-                          CircleAvatar(
-                            backgroundImage:
-                                AssetImage('assets/images/person5.jpg'),
-                            radius: 32.0,
-                          ),
-                          SizedBox(height: 8.0),
-                          Text(
-                            'Sonam',
-                            style: TextStyle(
-                              fontSize: 15.0,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          SizedBox(height: 8.0),
-                          Text(
-                            'UX Designer',
-                            style: TextStyle(fontSize: 12.0),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
+                  ),
+                ],
+              ),
+              children: [
+                const SizedBox(height: 16.0),
+                const Text(
+                  "The applications allow users to easily upload images from their gallery and obtain accurate predictions about the type of wood or item they are dealing with. With just a few clicks, users can access the gallery upload feature and select the image they want to analyze. Once the image is uploaded, the system uses advanced machine learning algorithms to identify the type of wood or item present in the image and provide the user with a prediction. This feature allows users to quickly and accurately identify unknown woods and items, making it a valuable tool for Bhutanese carpenters, artisans, and wood enthusiasts.",
+                  style: TextStyle(fontSize: 16),
                 ),
+                const SizedBox(height: 16.0),
+              ],
+            ),
+            ExpansionTile(
+              title: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: const [
+                  CircleAvatar(
+                    radius: 12,
+                    backgroundColor: Colors.blue,
+                    child: Text(
+                      '2',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 12,
+                      ),
+                    ),
+                  ),
+                  SizedBox(width: 8.0),
+                  Text(
+                    "Real Time Detection",
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
+              ),
+              children: [
+                const SizedBox(height: 16.0),
+                const Text(
+                  "In addition to gallery image uploads, the Traditional Bhutanese Wood and Item Recognition System also offers real-time recognition capabilities using the device's camera. This means that users can simply open the camera within the app and point it at a traditional Bhutanese wood or item to get an instant prediction of what it is. This feature is particularly useful for users who may come across a traditional Bhutanese wood or item in real life and want to quickly identify it. With this app, the process of identifying traditional Bhutanese woods and items becomes both more convenient and accessible.",
+                  style: TextStyle(fontSize: 16),
+                ),
+                const SizedBox(height: 16.0),
+              ],
+            ),
+            ExpansionTile(
+              title: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: const [
+                  CircleAvatar(
+                    radius: 12,
+                    backgroundColor: Colors.blue,
+                    child: Text(
+                      '2',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 12,
+                      ),
+                    ),
+                  ),
+                  SizedBox(width: 8.0),
+                  Text(
+                    'Learn About Us',
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
+              ),
+              children: [
+                const SizedBox(height: 16.0),
+                const Text(
+                  "This application is developed as final year project undertaken by Pema Rinchen, Nikita Sharm and Sonam, guided by Sir Yeshi Jamtsho. The project aims to develop a system that can recognize traditional Bhutanese wooden items using computer vision and machine learning techniques. \n \n The project involved extensive research and development of computer vision algorithms and machine learning models. The team also had to collect and curate a diverse dataset of traditional Bhutanese wooden items to train and validate the models.",
+                  style: TextStyle(fontSize: 16),
+                ),
+                const SizedBox(height: 16.0),
               ],
             ),
           ],

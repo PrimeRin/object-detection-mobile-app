@@ -50,7 +50,7 @@ class CategoryItem extends StatelessWidget {
                     cat["name"],
                     style: const TextStyle(
                       color: Colors.white,
-                      fontSize: 20,
+                      fontSize: 24,
                       fontWeight: FontWeight.bold,
                     ),
                     textAlign: TextAlign.center,
