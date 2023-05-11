@@ -85,6 +85,9 @@ class _MyHomePageState extends State<MyHomePage> {
     for (var i = 0; i < len; i++) {
       classObjects.removeAt(0);
     }
+    // classObjects.add('Dungshub');
+    // classObjects.add('Dha');
+    // classObjects.add('Thopkay');
     //pick a random image
     final XFile? image = await _picker.pickImage(source: ImageSource.gallery);
 

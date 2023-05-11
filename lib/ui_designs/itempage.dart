@@ -130,7 +130,7 @@ class _ItemPageState extends State<ItemPage> {
         'Bangkhab is a household item used for drying vegetables, storing fermented corn for brewing local ara, winnowing grains and for many other household chores. It is made of thinly sliced bamboo or cane pieces woven using skills called the five “(5) press and two (2) lift” systems. It is circular in shape, with different sizes firmly tightened and stitched with bamboo clips at the top.'
   },
   {
-    'name': 'DungShub',
+    'name': 'Dungshub',
     'dzo_name': 'དུང་ཤུབས།',
     'description':
         'Dungshub is intricately woven in cylindrical shape, using fine cane strips. Dungshub usually come in pair as they are used as protective covers for horns, religious wind instruments that come in pairs.'
